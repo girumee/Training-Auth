@@ -179,7 +179,13 @@ DJOSER = {
         'user_create': 'account.serializers.UserCreateSerializer',
         'user': 'account.serializers.UserCreateSerializer',
         'user_delete': 'djoser.serializers.UserDeleteSerializer',
-    }
+    },
+    'EMAIL': {
+        'activation': 'account.email.ActivationEmail',
+        'confirmation': 'account.email.ConfirmationEmail',
+        'password_reset': 'account.email.PasswordResetEmail',
+        'password_changed_confirmation': 'account.email.PasswordChangedConfirmationEmail',
+    },
 }
 
 CORS_ALLOWED_ORIGINS = [
