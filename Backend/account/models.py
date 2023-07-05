@@ -8,8 +8,8 @@ class UserManager(BaseUserManager):
 
         if not email:
             raise ValueError('user musts have an email address')
-        user = self.model(email=self.normalize_email(
-            email), name=name, is_admin=is_admin)
+        email = self.normalize_email(email)
+        user = self.model(email=email, name=name, is_admin=is_admin)
         user.set_password(password)
         user.save(using=self._db)
         return user
@@ -24,7 +24,6 @@ class UserManager(BaseUserManager):
         return user
 
 # Custom User Model.
-
 
 class User(AbstractBaseUser):
     email = models.EmailField(verbose_name='Email', max_length=255, unique=True,)

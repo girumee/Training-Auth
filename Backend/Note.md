@@ -1,8 +1,3 @@
 dependency
 
-djnago
-djoser
-djangorestframework_simplejwt
-djangorestframework  
-mysqlclient
-django-cors-headers
+pip install django djoser djangorestframework_simplejwt djangorestframework mysqlclient django-cors-headers

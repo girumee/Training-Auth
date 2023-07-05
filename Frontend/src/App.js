@@ -8,25 +8,26 @@ import ResetPassword from "./containers/ResetPassword";
 import ResetPasswordConfirm from "./containers/ResetPasswordConfirm";
 import Activate from "./containers/Activate";
 
+import { Provider } from "react-redux";
+import store from "./store";
+
 import Layout from "./hocs/Layout";
 
 const App = () => (
-  <Router>
-    <Layout>
-      <Routes>
-        <Route exact path="/" Component={Home} />
-        <Route exact path="/login" Component={Login} />
-        <Route exact path="/signup" Component={Signup} />
-        <Route exact path="/reset-Password" Component={ResetPassword} />
-        <Route
-          exact
-          path="/password-reset/:uid/:token"
-          Component={ResetPasswordConfirm}
-        />
-        <Route exact path="/activate/:uid/:token" Component={Activate} />
-      </Routes>
-    </Layout>
-  </Router>
+    <Provider store={store}>
+        <Router>
+            <Layout>
+                <Routes>
+                    <Route exact path="/" Component={Home} />
+                    <Route exact path="/login" Component={Login} />
+                    <Route exact path="/signup" Component={Signup} />
+                    <Route exact path="/reset-password" Component={ResetPassword} />
+                    <Route exact path="/password/reset/confirm/:uid/:token" Component={ResetPasswordConfirm} />
+                    <Route exact path="/activate/:uid/:token" Component={Activate} />
+                </Routes>
+            </Layout>
+        </Router>
+    </Provider>
 );
 
 export default App;
